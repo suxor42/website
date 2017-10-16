@@ -10,6 +10,7 @@ import (
 	"time"
 	"encoding/json"
 	"bytes"
+	"log"
 )
 
 func main() {
@@ -38,13 +39,13 @@ func main() {
 
 	go func() {
 		time.Sleep(11 * time.Second)
-		fmt.Println("Server didn't stop within 10 seconds. Force stop server")
+		log.Println("Server didn't stop within 10 seconds. Force stop server")
 		cancel()
 	}()
 
 	err := s.Shutdown(ctx)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 
 }

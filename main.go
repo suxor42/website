@@ -58,7 +58,6 @@ func handler(writer http.ResponseWriter, request *http.Request) {
 
 func blub(writer http.ResponseWriter, request *http.Request) {
 	headers := request.Header
-	time.Sleep(9 * time.Second)
 	switch request.Method {
 	case http.MethodGet:
 		responseJson, err := json.Marshal(headers)

@@ -29,7 +29,7 @@ func main() {
 	}
 
 	go func() {
-		http.HandleFunc("/", handler)
+		http.Handle("/", http.FileServer(http.Dir("./wwwroot")))
 		http.HandleFunc("/blub", blub)
 		s.ListenAndServe()
 	}()
